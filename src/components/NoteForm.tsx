@@ -31,7 +31,7 @@ export default function NoteForm({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    console.log("noteFormSubmit");
     // Basic validation
     if (!title.trim()) {
       setError("Title is required");
@@ -52,6 +52,7 @@ export default function NoteForm({
         title: title.trim(),
         content: content.trim(),
       };
+      onSubmit(data);
 
       // Redirect to notes list after successful submission
       router.push("/notes");
