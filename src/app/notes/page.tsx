@@ -21,7 +21,7 @@ export default function NotesPage() {
     try {
       setLoading(true);
       const fetchedNotes = await noteService.getAllNotes(search);
-      console.log(fetchedNotes);
+
       setNotes(fetchedNotes);
       setError(null);
     } catch (err) {

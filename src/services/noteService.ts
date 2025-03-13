@@ -77,7 +77,7 @@ export const noteService = {
     try {
       // BUG #1: Incorrect HTTP method for updating - using POST instead of PUT
       const response = await fetch(`/api/notes/${id}`, {
-        method: "POST",
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
@@ -118,3 +118,4 @@ export const noteService = {
       throw error;
     }
   },
+};
