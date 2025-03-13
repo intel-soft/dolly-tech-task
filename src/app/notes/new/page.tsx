@@ -9,7 +9,6 @@ export default function NewNotePage() {
   const [error, setError] = React.useState<string | null>(null);
 
   const handleSubmit = async (data: CreateNoteDto | UpdateNoteDto) => {
-    console.log("notepagesubmit");
     try {
       await noteService.createNote(data as CreateNoteDto);
     } catch (err) {
