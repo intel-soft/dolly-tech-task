@@ -45,6 +45,7 @@ export const noteService = {
   },
 
   // Create a new note
+  // BUG #3: New note is not being created - Fixed in NoteForm.tsx form submission
   async createNote(createNoteDto: CreateNoteDto): Promise<Note> {
     try {
       const response = await fetch("/api/notes", {
@@ -75,9 +76,9 @@ export const noteService = {
   // Update an existing note
   async updateNote(id: string, updateNoteDto: UpdateNoteDto): Promise<Note> {
     try {
-      // BUG #1: Incorrect HTTP method for updating - using POST instead of PUT
+      // BUG #2: HTTP method - using POST instead of PUT
       const response = await fetch(`/api/notes/${id}`, {
-        method: "POST",
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
@@ -118,4 +119,4 @@ export const noteService = {
       throw error;
     }
   },
-};
+}; // BUG #1: Syntax error, closing curly brace missing
