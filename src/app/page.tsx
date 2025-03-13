@@ -12,7 +12,7 @@ export default async function HomePage() {
         Welcome to the Note-Taking App
       </h1>
 
-      <div className="bg-white shadow rounded-lg p-6 mb-6">
+      <div className="dark:bg-neutral-700 shadow rounded-lg p-6 mb-6">
         <h2 className="text-xl font-semibold mb-4">About This App</h2>
         <p className="mb-4">
           This application demonstrates an App using Next.js and TypeScript.
@@ -23,18 +23,18 @@ export default async function HomePage() {
         </p>
       </div>
 
-      <div className="bg-white shadow rounded-lg p-6">
-        <h2 className="text-xl font-semibold mb-4">Get Started</h2>
+      <div className=" dark:bg-neutral-700 shadow rounded-lg p-6">
+        <h2 className="text-xl font-semibold mb-4 ">Get Started</h2>
         <div className="space-y-4">
           <Link
             href="/notes"
-            className="block w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded text-center"
+            className="block w-full bg-blue-600 dark:bg-sky-400 dark:hover:bg-sky-700 hover:bg-blue-700 text-white dark:text-black font-semibold py-2 px-4 rounded text-center"
           >
             View All Notes
           </Link>
           <Link
             href="/notes/new"
-            className="block w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded text-center"
+            className="block w-full bg-green-600 dark:bg-green-400 dark:hover:bg-green-800 hover:bg-green-700 text-white dark:text-black font-semibold py-2 px-4 rounded text-center"
           >
             Create New Note
           </Link>

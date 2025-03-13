@@ -140,7 +140,7 @@ export default function NotePage({ params }: { params: { id: string } }) {
             </div>
 
             <div className="prose max-w-none">
-              <p className="whitespace-pre-line">{note.content}</p>
+              <p className="whitespace-pre-line text-black">{note.content}</p>
             </div>
 
             <div className="mt-6 pt-4 border-t border-gray-100">

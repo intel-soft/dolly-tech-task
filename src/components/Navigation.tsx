@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import ThemeSwitch from "./ThemeToggle";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -10,32 +11,21 @@ export default function Navigation() {
   // TODO: Candidates should implement this component
   // This is just a basic structure to get started
   return (
-    <nav className="bg-white shadow">
-      <div className="container mx-auto px-6 py-4">
+    <nav className="shadow">
+      <div className="container mx-auto px-6 py-4 ">
         <div className="flex justify-between items-center">
           <div>
-            <Link href="/" className="text-xl font-bold text-gray-800">
+            <Link href="/" className="text-xl font-bold">
               Note App
             </Link>
           </div>
 
-          <div className="space-x-4">
-            <Link
-              href="/notes"
-              className={`${
-                pathname === "/notes" ? "text-blue-600" : "text-gray-800"
-              } hover:text-blue-500`}
-            >
-              All Notes
-            </Link>
-            <Link
-              href="/notes/new"
-              className={`${
-                pathname === "/notes/new" ? "text-blue-600" : "text-gray-800"
-              } hover:text-blue-500`}
-            >
-              New Note
-            </Link>
+          <div className="flex space-x-4 gap-4">
+            <Link href="/notes">All Notes</Link>
+            <Link href="/notes/new">New Note</Link>
+          </div>
+          <div>
+            <ThemeSwitch />
           </div>
         </div>
       </div>
