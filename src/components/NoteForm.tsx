@@ -85,7 +85,7 @@ export default function NoteForm({
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-slate-900"
           placeholder="Note title"
         />
       </div>
@@ -102,7 +102,7 @@ export default function NoteForm({
           value={content}
           onChange={(e) => setContent(e.target.value)}
           rows={8}
-          className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-slate-900 "
           placeholder="Note content"
         ></textarea>
       </div>
@@ -111,7 +111,7 @@ export default function NoteForm({
         <button
           type="button"
           onClick={() => router.back()}
-          className="px-4 py-2 border rounded text-gray-700 hover:bg-gray-100"
+          className="px-4 py-2 border rounded text-gray-700 dark:bg-slate-800  dark:text-neutral-100 dark:hover:bg-slate-950 hover:bg-gray-100"
         >
           Cancel
         </button>

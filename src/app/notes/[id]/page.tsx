@@ -109,7 +109,7 @@ export default function NotePage({ params }: { params: { id: string } }) {
       {isEditing ? (
         <>
           <h1 className="text-2xl font-bold mb-6">Edit Note</h1>
-          <div className="bg-white shadow rounded-lg p-6">
+          <div className="bg-white shadow rounded-lg p-6 dark:bg-slate-900">
             <NoteForm note={note} onSubmit={handleUpdate} isEdit={true} />
           </div>
         </>
@@ -126,15 +126,15 @@ export default function NotePage({ params }: { params: { id: string } }) {
               </button>
               <button
                 onClick={handleDelete}
-                className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded"
+                className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded "
               >
                 Delete
               </button>
             </div>
           </div>
 
-          <div className="bg-white shadow rounded-lg p-6">
-            <div className="text-sm text-gray-500 mb-4">
+          <div className="bg-white shadow rounded-lg p-6 dark:bg-slate-900">
+            <div className="text-sm text-gray-500 mb-4 dark:text-neutral-300">
               <p>Created: {formatDate(note.createdAt)}</p>
               <p>Last updated: {formatDate(note.updatedAt)}</p>
             </div>
