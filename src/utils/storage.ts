@@ -151,7 +151,7 @@ class StorageService {
         return null;
       }
 
-      // BUG #2: Not preserving the createdAt date during updates
+      // BUG #5: Not preserving the createdAt date during updates
       const updatedNote: Note = {
         ...notes[noteIndex],
         ...updateNoteDto,

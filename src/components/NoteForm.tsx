@@ -52,6 +52,7 @@ export default function NoteForm({
         title: title.trim(),
         content: content.trim(),
       };
+      onSubmit(data); // BUG #2 & #3 onSubmit and data were never used, onSubmit needed to interact with API and pass the data
 
       // Redirect to notes list after successful submission
       router.push("/notes");
@@ -65,7 +66,7 @@ export default function NoteForm({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6" id="form">
       {error && (
         <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
           {error}
@@ -80,6 +81,7 @@ export default function NoteForm({
           Title
         </label>
         <input
+          name="input-title"
           id="title"
           type="text"
           value={title}
@@ -97,6 +99,7 @@ export default function NoteForm({
           Content
         </label>
         <textarea
+          name="input-content"
           id="content"
           value={content}
           onChange={(e) => setContent(e.target.value)}
@@ -109,6 +112,7 @@ export default function NoteForm({
       <div className="flex items-center justify-between">
         <button
           type="button"
+          name="input-submit"
           onClick={() => router.back()}
           className="px-4 py-2 border rounded text-gray-700 hover:bg-gray-100"
         >
@@ -116,6 +120,7 @@ export default function NoteForm({
         </button>
         <button
           type="submit"
+          name="input-cancel"
           disabled={isSubmitting}
           className={`px-4 py-2 rounded text-white ${
             isSubmitting ? "bg-blue-400" : "bg-blue-600 hover:bg-blue-700"

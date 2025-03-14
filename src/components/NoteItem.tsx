@@ -26,10 +26,12 @@ export default function NoteItem({ note, onDelete }: NoteItemProps) {
   const handleDelete = async () => {
     if (!onDelete) return;
 
-    // BUG #3: Missing state handling - deleting without confirming
+    // BUG #4: Missing state handling - deleting without confirming
     try {
-      setIsDeleting(true);
-      await onDelete(note.id);
+      if (window.confirm("Are you sure you want to delete this comment?")) {
+        setIsDeleting(true);
+        await onDelete(note.id);
+      }
     } catch (error) {
       console.error("Error deleting note:", error);
       setIsDeleting(false);
@@ -45,7 +47,7 @@ export default function NoteItem({ note, onDelete }: NoteItemProps) {
   return (
     <div className="bg-white rounded shadow p-4 h-full flex flex-col">
       <div className="flex-grow">
-        <h3 className="text-lg font-semibold mb-2">{note.title}</h3>
+        <h3 className="text-black text-lg font-semibold mb-2">{note.title}</h3>
         <p className="text-gray-600 mb-4 text-sm">
           {formatDate(note.updatedAt)}
         </p>

@@ -54,7 +54,7 @@ export default function NotesPage() {
         <h1 className="text-2xl font-bold">All Notes</h1>
         <Link
           href="/notes/new"
-          className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded"
+          className="bg-green-600 dark:bg-green-400 dark:hover:bg-green-800 hover:bg-green-700 text-white dark:text-black px-4 py-2 rounded"
         >
           Create New Note
         </Link>
@@ -72,7 +72,7 @@ export default function NotesPage() {
           />
           <button
             type="submit"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-r"
+            className="bg-blue-600 dark:bg-sky-400 dark:hover:bg-sky-700 hover:bg-blue-700 text-white dark:text-black px-4 py-2 rounded-r"
           >
             Search
           </button>

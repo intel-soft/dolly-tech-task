@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../styles/globals.css";
 import Navigation from "@/components/Navigation";
+import { ThemeProvider } from "@/components/ThemeToggle";
 
 // Initialize Inter font
 const inter = Inter({ subsets: ["latin"] });
@@ -19,17 +20,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="min-h-screen flex flex-col bg-white">
-          <Navigation />
-          <main className="flex-grow container mx-auto px-4 py-8">
-            {children}
-          </main>
-          <footer className="bg-gray-100 py-4 text-center text-sm text-gray-600">
-            <div className="container mx-auto">
-              Note-Taking App - Technical Assessment
-            </div>
-          </footer>
-        </div>
+        <ThemeProvider>
+          <div className="min-h-screen flex flex-col">
+            {/* FIX: removed bg-white so theme toggle can be applied*/}
+            <Navigation />
+            <main className="flex-grow container mx-auto px-4 py-8">
+              {children}
+            </main>
+            <footer className="bg-gray-100 py-4 text-center text-sm text-gray-600">
+              <div className="container mx-auto">
+                Note-Taking App - Technical Assessment
+              </div>
+            </footer>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
