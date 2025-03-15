@@ -5,13 +5,14 @@ import { initSampleData } from "@/actions/noteActions";
 export default async function HomePage() {
   // Initialize sample data on first load
   await initSampleData();
-
+  const toggleTheme = () => {
+    document.documentElement.classList.toggle("dark");
+  };
   return (
     <div className="max-w-3xl mx-auto">
       <h1 className="text-3xl font-bold mb-6">
         Welcome to the Note-Taking App
       </h1>
-
       <div className="bg-white shadow rounded-lg p-6 mb-6 dark:bg-slate-900  dark:text-neutral-100">
         <h2 className="text-xl font-semibold mb-4">About This App</h2>
         <p className="mb-4">
@@ -22,7 +23,6 @@ export default async function HomePage() {
           applications can be structured.
         </p>
       </div>
-
       <div className="bg-white shadow rounded-lg p-6 dark:bg-slate-900  dark:text-neutral-100">
         <h2 className="text-xl font-semibold mb-4">Get Started</h2>
         <div className="space-y-4">
