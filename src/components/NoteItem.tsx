@@ -35,6 +35,8 @@ export default function NoteItem({ note, onDelete }: NoteItemProps) {
     } catch (error) {
       console.error("Error deleting note:", error);
       setIsDeleting(false);
+    } finally {
+      setIsDeleting(false)
     }
   };
 
