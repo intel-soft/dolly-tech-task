@@ -1,8 +1,23 @@
-# Steps followed
+## Issues
+
+1. Syntax error when trying to access View All Notes from Homepage.
+2. Editing notes does not save changes.
+3. New notes created are not saved.
+4. Comments are deleted without prompting the user whether they want to confirm the action and useState is always called regardless of whether deleting succeeds or fails.
+5. Editing notes rewrites the created at stamp.
+
+## Fixes
+
+1. noteService.ts was missing a closing curly brace, hence the Unexpected eof (end of file) message from terminal. Curly brace added in line 121.
+2. form in NoteForm.tsx was being submitted but was not setting the data for new Notes or updating Notes. Added onSubmit(data) in line 55 which fixes the issue.
+3. Same fix as above
+4. window.confirm used in NoteItem.tsx line 31 to prompt user for confirmation and finally block added
+5. time stamp for createdAt adjusted to keep showing original.
+
+## Steps followed
 
 Dev branch created 1-JavierMR-interview-task as a way to isolate changes and allow safe integration into the main project.
 
-0. Started at 9am.
 1. Opened localhost which displayed the homepage of the app however error was thrown when clicking on View All Notes - from the terminal the error seems to point to services/noteService.ts (line 117) and it's a syntax error.
 
 2. View All Notes functional, checked single notes and they show all their details.
@@ -14,26 +29,13 @@ Dev branch created 1-JavierMR-interview-task as a way to isolate changes and all
    - Checked Stack Overflow and GitHub forums to find info relevant to the above but this doesn't seem to be the issue for the POST / PUT bug.
    - I still think the issue must be in the form submission. I have checked the types for CreateNoteDto and UpdateNoteDto but everything seems ok.
    - I just realised that at the top of NoteForm.tsx there is another interface, NoteFormProps which contains onSubmit. This prop is being passed to the function NoteForm but its value is also never read.
-   - I used onSubmit passing the data and this fixes both, the creating and updating a Note issues!!!!!!
+   - I used onSubmit passing the data and this fixes both, the creating and updating a Note issues!!
 5. Deleting comments works fine but there is no prevention or asking for confirmation (and while checking NoteItem.tsx I also spotted a BUG comment stating this issue).
 6. I have just noticed that the created time stamp is changed when updating the Note, which should not be the case. However I have to prioritise implementing the Light/Dark mode toggle.
 7. I have already implemented a dark mode toggle in my two previous projects (bootcamp news site and portfolio), however I will be following https://dev.to/chinmaymhatre/implementing-dark-mode-in-nextjs-with-tailwind-css-and-next-themes-a4e to implement this.
 8. The tutorial above gave several issues due to type discrepancies (jsx) and after spending some time trying to solve it using Stack Overflow and other resources I have decided to use the toggle I implemented in my portfolio.
 9. Toggle implemented successfully, however all components have specified classes for background and font colour making the toggle erratic. I will check each component and text so it is responsive to the theme toggle.
-10. Stopped at 5.05pm, I would have liked to look at the bug mentioned in point number 6 and probably I would have done a bit of an adjustment to the UI in the Homepage.
-
-## Issues
-
-1. Syntax error when trying to access View All Notes from Homepage.
-2. Editing notes does not save changes.
-3. New notes created are not saved.
-4. Comments are deleted without prompting the user whether they want to confirm the action.
-
-## Fixes
-
-1. noteService.ts was missing a closing curly brace, hence the Unexpected eof (end of file) message from terminal. Curly brace added in line 121.
-   2 & 3. form in NoteForm.tsx was being submitted but was not setting the data for new Notes or updating Notes. Added onSubmit(data) in line 55 which fixes the issue.
-2. window.confirm used in NoteItem.tsx line 31 to prompt user for confirmation
+10. Time stamp bug fixed by accessing and displaying the original property rather than creating a new date.
 
 ## Task own notes:
 
