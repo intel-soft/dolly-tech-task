@@ -19,12 +19,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="min-h-screen flex flex-col bg-white">
+        <div className="min-h-screen flex flex-col bg-white dark dark:bg-backgroundDark">
           <Navigation />
           <main className="flex-grow container mx-auto px-4 py-8">
             {children}
           </main>
-          <footer className="bg-gray-100 py-4 text-center text-sm text-gray-600">
+          <footer className="bg-gray-100 dark:bg-gray-500 py-4 text-center text-sm text-gray-600 dark:text-foregroundDark">
             <div className="container mx-auto">
               Note-Taking App - Technical Assessment
             </div>

@@ -11,6 +11,7 @@ interface NoteItemProps {
 
 export default function NoteItem({ note, onDelete }: NoteItemProps) {
   const [isDeleting, setIsDeleting] = React.useState(false);
+  const [confirmDelete, setConfirmDelete] = React.useState(false);
 
   // Format date for display
   const formatDate = (dateString: string) => {
@@ -27,6 +28,12 @@ export default function NoteItem({ note, onDelete }: NoteItemProps) {
     if (!onDelete) return;
 
     // BUG #3: Missing state handling - deleting without confirming
+    if (!confirmDelete) {
+      setConfirmDelete(true);
+      setTimeout(() => setConfirmDelete(false), 3000);
+      return;
+    }
+
     try {
       setIsDeleting(true);
       await onDelete(note.id);
@@ -43,13 +50,11 @@ export default function NoteItem({ note, onDelete }: NoteItemProps) {
   };
 
   return (
-    <div className="bg-white rounded shadow p-4 h-full flex flex-col">
+    <div className="bg-white rounded shadow p-4 h-full flex flex-col bg-white text-foregroundLight dark:text-foregroundDark bg-backgroundLight dark:bg-backgroundDark">
       <div className="flex-grow">
         <h3 className="text-lg font-semibold mb-2">{note.title}</h3>
-        <p className="text-gray-600 mb-4 text-sm">
-          {formatDate(note.updatedAt)}
-        </p>
-        <p className="text-gray-800 mb-4">{truncateContent(note.content)}</p>
+        <p className="mb-4 text-sm">{formatDate(note.updatedAt)}</p>
+        <p className="mb-4">{truncateContent(note.content)}</p>
       </div>
 
       <div className="flex justify-between mt-4 pt-4 border-t border-gray-100">
@@ -68,7 +73,11 @@ export default function NoteItem({ note, onDelete }: NoteItemProps) {
               isDeleting ? "opacity-50 cursor-not-allowed" : ""
             }`}
           >
-            {isDeleting ? "Deleting..." : "Delete"}
+            {isDeleting
+              ? "Deleting..."
+              : confirmDelete
+              ? "Confirm Delete?"
+              : "Delete"}
           </button>
         )}
       </div>

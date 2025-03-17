@@ -105,7 +105,7 @@ export default function NotePage({ params }: { params: { id: string } }) {
   }
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="max-w-2xl mx-auto bg-white text-foregroundLight dark:text-foregroundDark bg-backgroundLight dark:bg-backgroundDark">
       {isEditing ? (
         <>
           <h1 className="text-2xl font-bold mb-6">Edit Note</h1>
@@ -133,7 +133,7 @@ export default function NotePage({ params }: { params: { id: string } }) {
             </div>
           </div>
 
-          <div className="bg-white shadow rounded-lg p-6">
+          <div className="shadow rounded-lg p-6">
             <div className="text-sm text-gray-500 mb-4">
               <p>Created: {formatDate(note.createdAt)}</p>
               <p>Last updated: {formatDate(note.updatedAt)}</p>

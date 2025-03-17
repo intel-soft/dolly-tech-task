@@ -48,7 +48,7 @@ export const noteService = {
   async createNote(createNoteDto: CreateNoteDto): Promise<Note> {
     try {
       const response = await fetch("/api/notes", {
-        method: "POST",
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
@@ -118,3 +118,4 @@ export const noteService = {
       throw error;
     }
   },
+};

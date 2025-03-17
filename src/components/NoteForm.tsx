@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Note, CreateNoteDto, UpdateNoteDto } from "@/models/Note";
 import { useRouter } from "next/navigation";
+import { createNote, updateNote } from "@/actions/noteActions";
 
 interface NoteFormProps {
   note?: Note;
@@ -52,6 +53,13 @@ export default function NoteForm({
         title: title.trim(),
         content: content.trim(),
       };
+      console.log(data);
+
+      if (isEdit && note) {
+        await updateNote(note.id, data);
+      } else {
+        await createNote(data as CreateNoteDto);
+      }
 
       // Redirect to notes list after successful submission
       router.push("/notes");
@@ -72,11 +80,8 @@ export default function NoteForm({
         </div>
       )}
 
-      <div>
-        <label
-          htmlFor="title"
-          className="block text-sm font-medium text-gray-700 mb-1"
-        >
+      <div className="">
+        <label htmlFor="title" className="block text-sm font-medium mb-1">
           Title
         </label>
         <input
@@ -84,16 +89,13 @@ export default function NoteForm({
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-backgroundLight dark:bg-backgroundDark"
           placeholder="Note title"
         />
       </div>
 
       <div>
-        <label
-          htmlFor="content"
-          className="block text-sm font-medium text-gray-700 mb-1"
-        >
+        <label htmlFor="content" className="block text-sm font-medium mb-1">
           Content
         </label>
         <textarea
@@ -101,7 +103,7 @@ export default function NoteForm({
           value={content}
           onChange={(e) => setContent(e.target.value)}
           rows={8}
-          className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-backgroundLight dark:bg-backgroundDark"
           placeholder="Note content"
         ></textarea>
       </div>
@@ -110,14 +112,14 @@ export default function NoteForm({
         <button
           type="button"
           onClick={() => router.back()}
-          className="px-4 py-2 border rounded text-gray-700 hover:bg-gray-100"
+          className="px-4 py-2 border rounded text-gray-700 hover:bg-gray-100 dark:hover:text-gray-900 bg-backgroundLight dark:bg-backgroundDark text-foregroundLight dark:text-foregroundDark"
         >
           Cancel
         </button>
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`px-4 py-2 rounded text-white ${
+          className={`px-4 py-2 rounded text-white  ${
             isSubmitting ? "bg-blue-400" : "bg-blue-600 hover:bg-blue-700"
           }`}
         >
