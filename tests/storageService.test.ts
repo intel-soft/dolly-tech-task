@@ -71,3 +71,53 @@ describe("StorageService - Update Note", () => {
   });
 });
 
+global.fetch = jest.fn();
+
+describe("noteService - Update Note", () => {
+  it("Should update the existing note with additional content", async () => {
+    // Arrange: Create a sample note for testing
+    const sampleNote: Note = {
+      id: "12345",
+      title: "Original Note",
+      content: "This is a test note.",
+      createdAt: "2025-03-18T10:00:00Z",
+      updatedAt: "2025-03-18T10:00:00Z",
+    };
+
+    // Mock the updated note we want after we run the update operation
+    const updatedNote: Note = {
+      ...sampleNote,
+      title: "Updated Title",
+      content: "This is a test note with updated content.",
+      updatedAt: "2025-03-18T11:00:00Z",
+    };
+
+    // Mock the response from the fetch call
+    (global.fetch as jest.Mock).mockResolvedValue({
+      json: jest.fn().mockResolvedValue({ success: true, data: updatedNote }),
+    });
+
+    // Act: Call the updateNote function
+    const result: Note | null = await noteService.updateNote(sampleNote.id, {
+      title: "Updated Title",
+      content: "This is a test note with updated content.",
+    });
+
+    // Assert: Ensure the result matches the updated note
+    expect(result).toEqual(updatedNote);
+    expect(result?.createdAt).toBe(sampleNote.createdAt); // createdAt should remain the same
+    expect(result?.updatedAt).not.toBe(sampleNote.updatedAt); // updatedAt should change
+
+    // Check that fetch was called with the correct arguments
+    expect(fetch).toHaveBeenCalledWith(`/api/notes/${sampleNote.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: "Updated Title",
+        content: "This is a test note with updated content.",
+      }),
+    });
+  });
+});
