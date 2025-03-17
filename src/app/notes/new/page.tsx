@@ -19,7 +19,7 @@ export default function NewNotePage() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="max-w-2xl mx-auto text-foregroundLight dark:text-foregroundDark">
       <h1 className="text-2xl font-bold mb-6">Create New Note</h1>
 
       {error && (
@@ -28,7 +28,7 @@ export default function NewNotePage() {
         </div>
       )}
 
-      <div className="bg-white shadow rounded-lg p-6">
+      <div className="bg-white shadow rounded-lg p-6 text-foregroundLight dark:text-foregroundDark bg-backgroundLight dark:bg-backgroundDark">
         <NoteForm onSubmit={handleSubmit} />
       </div>
     </div>

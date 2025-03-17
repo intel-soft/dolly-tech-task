@@ -49,7 +49,7 @@ export default function NotesPage() {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto bg-white text-foregroundLight dark:text-foregroundDark bg-backgroundLight dark:bg-backgroundDark">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">All Notes</h1>
         <Link
@@ -68,7 +68,7 @@ export default function NotesPage() {
             placeholder="Search notes..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="flex-grow px-4 py-2 border rounded-l focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-grow px-4 py-2 border rounded-l focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-foregroundLight dark:text-foregroundDark bg-backgroundLight dark:bg-backgroundDark"
           />
           <button
             type="submit"
@@ -86,7 +86,7 @@ export default function NotesPage() {
       )}
 
       {loading ? (
-        <div className="text-center py-4">Loading notes...</div>
+        <div className="text-center py-4 ">Loading notes...</div>
       ) : notes.length > 0 ? (
         <NoteList notes={notes} onDelete={handleDelete} />
       ) : (
