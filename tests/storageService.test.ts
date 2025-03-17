@@ -1,5 +1,5 @@
-import { storageService } from "@/utils/storage";
-import { Note } from "@/models/Note";
+import { storageService } from "../src/utils/storage";
+import { CreateNoteDto, Note } from "@/models/Note";
 import { createNote } from "@/actions/noteActions";
 
 // Tests will be written using Arrange, Act, & Assert structure

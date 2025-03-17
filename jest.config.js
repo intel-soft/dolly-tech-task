@@ -1,10 +1,8 @@
 module.exports = {
-    transform: {
-        '^.+\\.(ts|tsx)$': 'babel-jest',  // Tells Jest to use Babel to transform TypeScript files
-    },
-    // If you're using module aliases (e.g., "@/utils/storage"), add this:
+    preset: 'ts-jest',
+    testEnvironment: 'node',
     moduleNameMapper: {
-        '^@/(.*)$': '<rootDir>/src/$1',  // Adjust this based on your actual folder structure
+        '^@/(.*)$': '<rootDir>/src/$1'
     },
-    testEnvironment: 'node',  // Use 'node' environment for backend testing
+    testRegex: '(/tests/.*|(\\.|/)(test|spec))\\.ts$'
 };
