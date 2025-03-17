@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Note, CreateNoteDto, UpdateNoteDto } from "@/models/Note";
 import { useRouter } from "next/navigation";
 
+
 interface NoteFormProps {
   note?: Note;
   onSubmit: (data: CreateNoteDto | UpdateNoteDto) => Promise<void>;
@@ -15,11 +16,13 @@ export default function NoteForm({
   onSubmit,
   isEdit = false,
 }: NoteFormProps) {
+
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
 
   // Set initial form values if editing
   useEffect(() => {
@@ -30,6 +33,7 @@ export default function NoteForm({
   }, [note]);
 
   const handleSubmit = async (e: React.FormEvent) => {
+
     e.preventDefault();
 
     // Basic validation
@@ -44,6 +48,7 @@ export default function NoteForm({
     }
 
     try {
+
       setIsSubmitting(true);
       setError(null);
 
@@ -52,6 +57,9 @@ export default function NoteForm({
         title: title.trim(),
         content: content.trim(),
       };
+
+      // Ensure the data is submitted before redirecting to the homepage and refreshing
+      await onSubmit(data);
 
       // Redirect to notes list after successful submission
       router.push("/notes");
