@@ -120,7 +120,6 @@ class StorageService {
 
       notes.push(newNote);
       await this.saveAll(notes);
-
       return newNote;
     } catch (error) {
       console.error("Error creating note:", error);

@@ -9,13 +9,13 @@ import { createNote } from "@/actions/noteActions";
 describe("StorageService - Create Note", () => {
   it("Should create a new note with correct properties / value types", async () => {
     //Arrange: Create note content using required fields
-    const newNote = {
+    const newNote: CreateNoteDto = {
       title: "Brand New Test Note",
       content: "This is a newly created test note.",
     };
 
     //Act: Create a new note using create()
-    const createdNote = await storageService.create(newNote);
+    const createdNote: Note = await storageService.create(newNote);
 
     //Assert: Ensure the created note has the expected properties found in models interface (Note.ts)
     expect(createdNote).toHaveProperty("id");
@@ -37,13 +37,13 @@ describe("StorageService - Create Note", () => {
 describe("StorageService - Update Note", () => {
   it("Should preserve createdAt when updating a note", async () => {
     // Arrange: Create a sample note for testing
-    const sampleNote = await storageService.create({
+    const sampleNote: Note = await storageService.create({
       title: "Original Note",
       content: "This is a test note.",
     });
 
     // Act: Update the note (should NOT modify createdAt)
-    const updatedNote = await storageService.update(sampleNote.id, {
+    const updatedNote: Note | null = await storageService.update(sampleNote.id, {
       title: "Updated Title",
     });
 
@@ -51,3 +51,4 @@ describe("StorageService - Update Note", () => {
     expect(updatedNote?.createdAt).toBe(sampleNote.createdAt);
   });
 });
+
