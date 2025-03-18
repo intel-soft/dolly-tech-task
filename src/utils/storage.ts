@@ -151,11 +151,11 @@ class StorageService {
         return null;
       }
 
-      // BUG #2: Not preserving the createdAt date during updates
+      // BUG #5: Not preserving the createdAt date during updates
       const updatedNote: Note = {
         ...notes[noteIndex],
         ...updateNoteDto,
-        createdAt: new Date().toISOString(), // This should preserve the original createdAt date
+        createdAt: notes[noteIndex].createdAt, // This should preserve the original createdAt date
         updatedAt: new Date().toISOString(),
       };
 

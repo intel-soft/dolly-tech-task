@@ -120,7 +120,7 @@ export default function NotePage({ params }: { params: { id: string } }) {
             <div className="space-x-2">
               <button
                 onClick={() => setIsEditing(true)}
-                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded"
+                className="px-4 py-2 mb-4 ml-2 bg-blue-600 hover:bg-blue-700 text-white rounded"
               >
                 Edit
               </button>
@@ -140,7 +140,7 @@ export default function NotePage({ params }: { params: { id: string } }) {
             </div>
 
             <div className="prose max-w-none">
-              <p className="whitespace-pre-line">{note.content}</p>
+              <p className="whitespace-pre-line text-black">{note.content}</p>
             </div>
 
             <div className="mt-6 pt-4 border-t border-gray-100">
