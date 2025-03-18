@@ -46,3 +46,4 @@ Dev branch created for today's purpose: Small UI change to homepage, using Tailw
 4. Used Lighthouse tool to check accessibility in several pages:
    - Homepage: 'Background and foreground colors do not have a sufficient contrast ratio' in the Create New Note button - darker shade of green used for higher contrast in Homepage and All Notes page.
    - NoteItem.tsx: 'Heading elements are not in a sequentially-descending order' - changed h3 to h2 for note.title in line 52.
+5. Whilst rechecking the app I spotted a small bug in Dark Mode. When Creating or updating a Note, the input fields title&content react to the mode toggle making the font invisible.

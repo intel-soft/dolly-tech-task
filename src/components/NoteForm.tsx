@@ -86,7 +86,7 @@ export default function NoteForm({
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
           placeholder="Note title"
         />
       </div>
@@ -104,7 +104,7 @@ export default function NoteForm({
           value={content}
           onChange={(e) => setContent(e.target.value)}
           rows={8}
-          className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
           placeholder="Note content"
         ></textarea>
       </div>
