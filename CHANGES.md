@@ -47,3 +47,9 @@ Dev branch created for today's purpose: Small UI change to homepage, using Tailw
    - Homepage: 'Background and foreground colors do not have a sufficient contrast ratio' in the Create New Note button - darker shade of green used for higher contrast in Homepage and All Notes page.
    - NoteItem.tsx: 'Heading elements are not in a sequentially-descending order' - changed h3 to h2 for note.title in line 52.
 5. Whilst rechecking the app I spotted a small bug in Dark Mode. When Creating or updating a Note, the input fields title&content react to the mode toggle making the font invisible.
+
+---
+
+### Next steps
+
+I would have liked to integrate some testing. I thought of using Jest/Supertest but while checking ways to test Next.js API routes with TypeScript I stumbled upon https://www.npmjs.com/package/next-test-api-route-handler I have had come across it earlier I would have done some Spiking and try to use it to test POST, PUT and DELETE endpoints.
