@@ -83,7 +83,7 @@ export default function NoteForm({
       <div>
         <label
           htmlFor="title"
-          className="block text-sm font-medium text-gray-700 mb-1"
+          className="block text-sm font-medium text-gray-700 mb-1 dark:text-white"
         >
           Title
         </label>
@@ -92,7 +92,7 @@ export default function NoteForm({
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600"
+          className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white"
           placeholder="Note title"
         />
       </div>
@@ -100,7 +100,7 @@ export default function NoteForm({
       <div>
         <label
           htmlFor="content"
-          className="block text-sm font-medium text-gray-700 mb-1"
+          className="block text-sm font-medium text-gray-700 mb-1 dark:text-white"
         >
           Content
         </label>
@@ -109,7 +109,7 @@ export default function NoteForm({
           value={content}
           onChange={(e) => setContent(e.target.value)}
           rows={8}
-          className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600"
+          className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white"
           placeholder="Note content"
         ></textarea>
       </div>
@@ -118,7 +118,7 @@ export default function NoteForm({
         <button
           type="button"
           onClick={() => router.back()}
-          className="px-4 py-2 border rounded text-gray-700 hover:bg-gray-100"
+          className="px-4 py-2 border rounded text-gray-700 hover:bg-gray-100 dark:text-white"
         >
           Cancel
         </button>

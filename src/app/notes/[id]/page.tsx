@@ -108,15 +108,15 @@ export default function NotePage({ params }: { params: { id: string } }) {
     <div className="max-w-2xl mx-auto">
       {isEditing ? (
         <>
-          <h1 className="text-2xl font-bold mb-6">Edit Note</h1>
-          <div className="bg-white shadow rounded-lg p-6">
+          <h1 className="text-2xl font-bold mb-6 dark:text-white">Edit Note</h1>
+          <div className="bg-white shadow rounded-lg p-6 dark:bg-gray-800">
             <NoteForm note={note} onSubmit={handleUpdate} isEdit={true} />
           </div>
         </>
       ) : (
         <>
           <div className="flex justify-between items-center mb-6">
-            <h1 className="text-2xl font-bold">{note.title}</h1>
+            <h1 className="text-2xl font-bold dark:text-white">{note.title}</h1>
             <div className="space-x-2">
               <button
                 onClick={() => setIsEditing(true)}
@@ -133,8 +133,8 @@ export default function NotePage({ params }: { params: { id: string } }) {
             </div>
           </div>
 
-          <div className="bg-white shadow rounded-lg p-6">
-            <div className="text-sm text-gray-500 mb-4">
+          <div className="bg-white shadow rounded-lg p-6 dark:text-white dark:bg-gray-600">
+              <div className="text-sm text-gray-500 mb-4 dark:text-white">
               <p>Created: {formatDate(note.createdAt)}</p>
               <p>Last updated: {formatDate(note.updatedAt)}</p>
             </div>
