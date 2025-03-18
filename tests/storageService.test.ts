@@ -10,6 +10,7 @@ jest.mock("../src/utils/storage", () => ({
   },
 }));
 
+
 describe("StorageService - Create Note", () => {
   it("Should create a new note with correct properties / value types", async () => {
     const newNote: CreateNoteDto = {
