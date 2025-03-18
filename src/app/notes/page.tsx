@@ -51,7 +51,7 @@ export default function NotesPage() {
   return (
     <div className="container mx-auto">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">All Notes</h1>
+        <h1 className="text-2xl font-bold dark:text-white">All Notes</h1>
         <Link
           href="/notes/new"
           className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded"
