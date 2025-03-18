@@ -8,19 +8,20 @@ import ThemeSwitch from "./ThemeToggle";
 export default function Navigation() {
   const pathname = usePathname();
 
-  // TODO: Candidates should implement this component
-  // This is just a basic structure to get started
   return (
     <nav className="shadow">
       <div className="container mx-auto px-6 py-4 ">
         <div className="flex justify-between items-center">
           <div>
-            <Link href="/" className="text-xl font-bold">
+            <Link
+              href="/"
+              className="text-xl md:text-2xl xl:text-3xl font-bold"
+            >
               Note App
             </Link>
           </div>
 
-          <div className="flex space-x-4 gap-4">
+          <div className="flex space-x-4 gap-4 text-base md:text-lg xl:text-xl">
             <Link href="/notes">All Notes</Link>
             <Link href="/notes/new">New Note</Link>
           </div>
