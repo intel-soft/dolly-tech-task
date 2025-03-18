@@ -54,7 +54,7 @@ export default function NotesPage() {
         <h1 className="text-2xl font-bold">All Notes</h1>
         <Link
           href="/notes/new"
-          className="bg-green-600 dark:bg-green-400 dark:hover:bg-green-800 hover:bg-green-700 text-white dark:text-black px-4 py-2 rounded"
+          className="bg-green-800 dark:bg-green-400 dark:hover:bg-green-800 hover:bg-green-700 text-white dark:text-black px-4 py-2 rounded"
         >
           Create New Note
         </Link>
@@ -68,7 +68,7 @@ export default function NotesPage() {
             placeholder="Search notes..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="flex-grow px-4 py-2 border rounded-l focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-grow px-4 py-2 border rounded-l focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
           />
           <button
             type="submit"
