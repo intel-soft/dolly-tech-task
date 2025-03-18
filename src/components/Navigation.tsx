@@ -12,7 +12,6 @@ export default function Navigation() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
-    console.log('reached')
     setIsDarkMode(!isDarkMode);
   };
 
